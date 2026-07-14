@@ -1,0 +1,6 @@
+Task 2. Development of a text file viewer
+What to do:
+Develop a simple text file viewer. 
+At the beginning of the program, the user enters the path to the text file to be opened and viewed. 
+The contents of the file must be printed to the standard output. 
+The program should work for any text files in TXT format.

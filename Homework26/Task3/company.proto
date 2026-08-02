@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package company_model;
+
+message Company {
+    // Обязательные поля (required)
+    required int32 founding_year = 1;
+    required string legal_address = 2;
+    required string name = 3;
+
+    // Опциональные поля (optional)
+    optional string activity_type = 4;
+    optional bool foreign_economic_activity = 5;
+}

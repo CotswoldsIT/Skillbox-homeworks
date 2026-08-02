@@ -1,0 +1,32 @@
+{
+  "movies": [
+    {
+      "title": "Начало",
+      "country": "США",
+      "year": 2010,
+      "studio": "Warner Bros.",
+      "director": "Кристофер Нолан",
+      "screenwriter": "Кристофер Нолан",
+      "producer": "Эмма Томас",
+      "cast": [
+        {"actor": "Леонардо ДиКаприо", "character": "Кобб"},
+        {"actor": "Джозеф Гордон-Левитт", "character": "Артур"},
+        {"actor": "Эллиот Пейдж", "character": "Ариадна"}
+      ]
+    },
+    {
+      "title": "Темный рыцарь",
+      "country": "США",
+      "year": 2008,
+      "studio": "Warner Bros.",
+      "director": "Кристофер Нолан",
+      "screenwriter": "Джонатан Нолан",
+      "producer": "Эмма Томас",
+      "cast": [
+        {"actor": "Кристиан Бэйл", "character": "Брюс Уэйн"},
+        {"actor": "Хит Леджер", "character": "Джокер"},
+        {"actor": "Гари Олдман", "character": "Гордон"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "title": "Начало",
+  "original_title": "Inception",
+  "year": 2010,
+  "release_date": "2010-07-22",
+  "country": "США",
+  "production_studio": "Warner Bros. Pictures",
+  "crew": {
+    "director": "Кристофер Нолан",
+    "screenplay": "Кристофер Нолан",
+    "producers": [
+      "Кристофер Нолан",
+      "Эмма Томас"
+    ]
+  },
+  "cast": [
+    {
+      "actor": "Леонардо Ди Каприо",
+      "character": "Доминик Кобб"
+    },
+    {
+      "actor": "Джозеф Гордон-Левитт",
+      "character": "Артур"
+    },
+    {
+      "actor": "Эллиот Пейдж",
+      "character": "Ариадна"
+    },
+    {
+      "actor": "Том Харди",
+      "character": "Имс"
+    },
+    {
+      "actor": "Киллиан Мёрфи",
+      "character": "Роберт Фишер"
+    },
+    {
+      "actor": "Кен Ватанабе",
+      "character": "Сайто"
+    }
+  ]
+}

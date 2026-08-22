@@ -8,13 +8,13 @@ Window {
     title: "Перемещение круга по холсту"
     color: "white"
 
-    // Добавляем корневой элемент Item для поддержки states и transitions в Qt 6
+    //  корневой элемент 
     Item {
         id: content
         anchors.fill: parent
         state: "InitialState"
 
-        // Левый квадрат (кнопка move)
+        // Левый квадрат 
         Rectangle {
             id: rectLeft
             x: 80
@@ -45,7 +45,7 @@ Window {
             }
         }
 
-        // Правый квадрат (кнопка return)
+        // Правый квадрат 
         Rectangle {
             id: rectRight
             x: 370
@@ -81,7 +81,7 @@ Window {
             z: 2
         }
 
-        // Перенесли блок состояний внутрь Item
+        // блок состояний внутри Item
         states: [
             State {
                 name: "InitialState"
@@ -101,7 +101,7 @@ Window {
             }
         ]
 
-        // Перенесли блок анимации внутрь Item
+        // блок анимации внутрь Item
         transitions: [
             Transition {
                 from: "OtherState"

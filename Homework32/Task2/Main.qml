@@ -19,7 +19,7 @@ Window {
             anchors.horizontalCenter: parent
         }
 
-        // Поле ввода текста
+        // Поле  ввода текста
         TextField {
             id: phoneInput
             width: 300

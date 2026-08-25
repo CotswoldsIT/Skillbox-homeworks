@@ -11,7 +11,7 @@ struct Entry {
     size_t doc_id;
     size_t count;
 
-    // Оператор для юнит-тестов (строго по ТЗ)
+    // Оператор для юнит-тестов 
     bool operator==(const Entry& other) const {
         return (doc_id == other.doc_id && count == other.count);
     }

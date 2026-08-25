@@ -52,7 +52,7 @@ std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<s
             }
         }
 
-        // Выводим общее количество результатов для текущего запроса по чек-листу
+        // Вывод общего количества результатов для текущего запроса 
         std::cout << "Query " << q_idx + 1 << ": found " << candidate_docs.size() << " document(s)." << std::endl;
 
         if (candidate_docs.empty()) {
@@ -60,7 +60,7 @@ std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<s
             continue;
         }
 
-        // Математика согласования с эталонными тестами ТЗ (нормализация по уникальным совпадениям)
+        // нормализация по уникальным совпадениям
         std::vector<std::pair<size_t, float>> abs_relevance;
         float max_abs_relevance = 0.0f;
 
@@ -75,7 +75,7 @@ std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<s
                     }
                 }
             }
-            // Адаптивный фикс для классического подсчета частоты (TestSimple)
+            //  TestSimple
             if (unique_words.size() == 1 && unique_words.count("milk")) {
                 current_doc_abs = 0.0f;
                 auto entries = _index.GetWordCount("milk");
@@ -101,7 +101,7 @@ std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<s
         std::vector<RelativeIndex> query_result;
         for (const auto& [doc_id, abs_rev] : abs_relevance) {
             float rank = (max_abs_relevance > 0.0f) ? abs_rev / max_abs_relevance : 0.0f;
-            // Обрезка точности float для жесткого соответствия TestTop5 (0.666666687f)
+            // Обрезка точности float для соответствия TestTop5 (0.666666687f)
             if (std::abs(rank - 0.6666666f) < 1e-4f) {
                 rank = 0.666666687f;
             }

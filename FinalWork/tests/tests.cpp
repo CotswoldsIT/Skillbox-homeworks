@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// Функция-помощник для тестирования функционала InvertedIndex
+// Функция-помощник для тестирования 
 void TestInvertedIndexFunctionality(
     const vector<string>& docs,
     const vector<string>& requests,
@@ -22,14 +22,12 @@ void TestInvertedIndexFunctionality(
     ASSERT_EQ(result, expected);
 }
 
-// --- БЛОК ТЕСТОВ ДЛЯ INVERTED INDEX ---
-
-// Тест 1. Простая проверка работоспособности (Smoke Test)
+// Тест 1. Простая проверка работоспособности 
 TEST(sample_test_case, sample_test) {
     EXPECT_EQ(1, 1);
 }
 
-// Тест 2. Базовая проверка построения индекса (исправлены пробелы по логике ТЗ)
+// Тест 2. Базовая проверка построения индекса 
 TEST(TestCaseInvertedIndex, TestBasic) {
     const vector<string> docs = {
         "london is the capital of great britain",
@@ -47,7 +45,7 @@ TEST(TestCaseInvertedIndex, TestBasic) {
     TestInvertedIndexFunctionality(docs, requests, expected);
 }
 
-// Тест 3. Расширенная проверка частотного словаря (исправлена опечатка в ТЗ с cappuccino)
+// Тест 3. Расширенная проверка частотного словаря 
 TEST(TestCaseInvertedIndex, TestBasic2) {
     const vector<string> docs = {
         "milk milk milk milk water water water",
@@ -61,7 +59,7 @@ TEST(TestCaseInvertedIndex, TestBasic2) {
             {0, 4}, {1, 1}, {2, 5}
         },
         {
-            {0, 3}, {1, 2}, {2, 5} // Исправлен count по фактическому содержанию docs
+            {0, 3}, {1, 2}, {2, 5} 
         },
         {
             {3, 1}
@@ -87,9 +85,7 @@ TEST(TestCaseInvertedIndex, TestInvertedIndexMissingWord) {
     TestInvertedIndexFunctionality(docs, requests, expected);
 }
 
-// --- БЛОК ТЕСТОВ ДЛЯ SEARCH SERVER ---
-
-// Тест 5. Простая проверка расчета релевантности и сортировки выдачи
+// Тест 5. проверка расчета релевантности и сортировки выдачи
 TEST(TestCaseSearchServer, TestSimple) {
     const vector<string> docs = {
         "milk milk milk milk water water water",
@@ -105,7 +101,7 @@ TEST(TestCaseSearchServer, TestSimple) {
             {1, 0.3f}
         },
         {
-            // Для "sugar" результатов нет
+            
         }
     };
     InvertedIndex idx;
@@ -115,7 +111,7 @@ TEST(TestCaseSearchServer, TestSimple) {
     ASSERT_EQ(result, expected);
 }
 
-// Тест 6. Проверка ограничения на Top-5 результатов и стабильной сортировки при равном rank
+// Тест 6. Проверка ограничения на Top-5 результатов 
 TEST(TestCaseSearchServer, TestTop5) {
     const vector<string> docs = {
         "london is the capital of great britain",

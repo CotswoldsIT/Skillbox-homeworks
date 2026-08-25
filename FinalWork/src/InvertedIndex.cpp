@@ -18,7 +18,7 @@ void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs) {
 
     std::vector<std::thread> threads;
     
-    // Временная структура для накопления частот по каждому потоку (документу)
+    // Временная структура для накопления частот по каждому документу
     // чтобы минимизировать блокировку общего мьютекса
     for (size_t doc_idx = 0; doc_idx < docs.size(); ++doc_idx) {
         threads.emplace_back([this, doc_idx]() {
@@ -26,7 +26,7 @@ void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs) {
             std::stringstream ss(docs[doc_idx]);
             std::string raw_word;
 
-            // Разбиваем текст документа на отдельные слова
+            // Разбор текста документа на отдельные слова
             while (ss >> raw_word) {
                 std::string word = cleanWord(raw_word);
                 if (!word.empty()) {
@@ -34,7 +34,7 @@ void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs) {
                 }
             }
 
-            // Синхронизируем запись локальных результатов в общий частотный словарь
+            // Синхронизация записи локальных результатов в общий частотный словарь
             std::lock_guard<std::mutex> lock(dict_mutex);
             for (const auto& [word, count] : local_counts) {
                 freq_dictionary[word].push_back(Entry{doc_idx, count});
@@ -42,14 +42,14 @@ void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs) {
         });
     }
 
-    // Ожидаем завершения работы всех потоков индексации
+    // Ожидание завершения работы всех потоков индексации
     for (auto& th : threads) {
         if (th.joinable()) {
             th.join();
         }
     }
 
-    // Сортируем списки Entry по doc_id внутри freq_dictionary для стабильности поиска
+    
     for (auto& [word, entries] : freq_dictionary) {
         std::sort(entries.begin(), entries.end(), [](const Entry& a, const Entry& b) {
             return a.doc_id < b.doc_id;
@@ -63,5 +63,5 @@ std::vector<Entry> InvertedIndex::GetWordCount(const std::string& word) {
     if (it != freq_dictionary.end()) {
         return it->second;
     }
-    return {}; // Если слова нет в базе, возвращаем пустой вектор по ТЗ
+    return {}; // Если слова нет в базе, возвращаем пустой вектор 
 }
